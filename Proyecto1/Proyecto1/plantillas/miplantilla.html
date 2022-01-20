@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento plantilla</title>
+</head>
+<body>
+    <p>Esta lista que está en linea es una plantilla incrustada dentro de la plantilla principal</p>
+    {% include "superior/barra.html" %}
+    <h1>Mis primeras plantillas</h1>
+
+    {% if nombre_alumno == 'faber' %}
+    <p>Esta view es para comprobar con un if que el nombre del alumno es Faber, si no, no imprimira esta linea.</p>
+    {% else %}
+    <p>Este es un texto para un else en caso de que la condicion if no se cumpla.</p>
+    {% endif %}
+
+    <p>Probando las variables dentro del diccionario del context(). En este caso pondremos alumno y que nos imprima la variable alumno usando la clave que le pusimos, nombre_alumno: {{nombre_alumno.upper}} {{apellido_alumno.upper}}</p>
+    <p>Usando .upper damos formato de poner en mayÚsculas el nombre completo</p>
+    <h3>Fecha: {{ahora}}</h3>
+
+    <h3><strong>Temas del curso</strong></h3>
+    <p>
+        <ul>
+            {% if temas %}
+                {% for elTema in temas %}
+                    <li>{{elTema}}</li>
+                {% endfor %}
+            {% else %}
+                <p>La lista esta vacia, no hay elementos que mostrar</p>
+            {% endif %}
+        </ul>
+    </p>
+</body>
+</html>
