@@ -5,7 +5,7 @@ class Clientes(models.Model):
     nombre = models.CharField(max_length=30)
     apellidos = models.CharField(max_length=30)
     direccion = models.CharField(max_length=50)
-    email = models.EmailField()
+    email = models.EmailField(blank=True, null=True)
     telefono = models.CharField(max_length=11)
 
     def __str__(self):
